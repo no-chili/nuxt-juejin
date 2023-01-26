@@ -1,14 +1,20 @@
 <template>
   <div>
     <button
-      class="rounded-lg px-2 text-white bg-slate-500 py-1 font-sans font-medium shadow-2xl transition-colors hover:bg-slate-400 active:bg-slate-600"
-      @click="count++"
+      class="h-9 rounded-md bg-teal-400 px-5 text-center text-black transition-all hover:bg-teal-500 active:bg-teal-600"
+      @click="changeTheme"
     >
-    {{ count }}
+      切换主题
     </button>
-    <NuxtPage />
+    <div>当前主题：{{ currentTheme }}</div>
+    <div class="bg-base text-main">
+      <p>这是主题下的内容</p>
+      <div>99999999999999999999999999999999999999999999999999999999999999</div>
+      <NuxtPage />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-let count = ref<number>(0)
+import './style/global.css'
+const { currentTheme, changeTheme } = useTheme()
 </script>
