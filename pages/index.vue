@@ -1,4 +1,6 @@
 <template>
-  <div>page-post</div>
+  <ArticleTab />
+  <Article />
+  <Ad />
+  <AuthorList />
 </template>
-<script lang="ts" setup></script>

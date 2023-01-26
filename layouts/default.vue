@@ -1,6 +1,9 @@
 <template>
   <div>
+    <Tab />
     <slot />
   </div>
 </template>
-<script lang="ts" setup></script>
+<script setup>
+import Tab from '../components/Tab.vue'
+</script>

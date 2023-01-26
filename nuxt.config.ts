@@ -4,4 +4,5 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   modules: ['@nuxtjs/tailwindcss'],
+  css: ['@/styles/global.css'],
 })
