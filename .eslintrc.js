@@ -4,7 +4,14 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:vue/vue3-essential', 'plugin:prettier/recommended', 'prettier', 'plugin:tailwindcss/recommended'],
+  extends: [
+    'plugin:vue/vue3-essential',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'plugin:tailwindcss/recommended',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',

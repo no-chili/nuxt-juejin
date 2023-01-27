@@ -1,6 +1,6 @@
 export function useTheme() {
   const themeList = ['light', 'dark']
-  const currentTheme = ref(themeList[0])
+  const currentTheme = ref<string>(themeList[0])
   let index = 0
   function changeTheme() {
     const body = document.body

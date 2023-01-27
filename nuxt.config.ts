@@ -5,4 +5,5 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/tailwindcss'],
   css: ['@/styles/global.css'],
+  serverHandlers: [{ route: 'api', middleware: true, handler: '~/server/index.ts' }],
 })
