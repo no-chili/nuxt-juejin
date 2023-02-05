@@ -3,6 +3,9 @@ import tab from '../db/schemas/tab'
 import ad from '../db/schemas/ad'
 import article from '../db/schemas/article'
 import author from '../db/schemas/author'
+import multer from 'multer'
+const objMulter = multer({ dest: './public/uploads' })
+
 type Map = {
   [k: string]: any
 }
@@ -67,5 +70,9 @@ router.put('/:model', async (req, res) => {
 
 function useResourceRoutes(app: Express) {
   app.use('/resource', router)
+  app.post('/upload', objMulter.single('file'), async (req, res) => {
+    const file = req.file!
+    res.send({ ...file, url: `http://127.0.0.1:3000/uploads/${file.filename}` })
+  })
 }
 export default useResourceRoutes
