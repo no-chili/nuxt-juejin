@@ -32,6 +32,7 @@ module.exports = {
         highlight: withOpacityValue('--color-highlight'),
         base: withOpacityValue('--color-bg-base'),
         nav: withOpacityValue('--color-bg-nav'),
+        tab: withOpacityValue('--color-bg-tab'),
         main: withOpacityValue('--color-fill-main'),
         muted: withOpacityValue('--color-fill-muted'),
       },
@@ -60,6 +61,41 @@ module.exports = {
         highlight: withOpacityValue('--color-highlight'),
       },
     },
+    fontSize: {
+      'xs': '.075rem',
+      'sm': '.875rem',
+      'tiny': '.875rem',
+      'base': '1rem',
+      'lg': '1.125rem',
+      'xl': '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
+    },
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '802px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    }
   },
   plugins: [],
+  variants: {
+    extend: {
+      padding: ['hover'],
+    }
+  },
 }
