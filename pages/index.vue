@@ -1,6 +1,7 @@
 <template>
-  <ArticleTab />
-  <Article />
-  <Ad />
-  <AuthorList />
+  <signin />
+  <Advertisement />
+  <Downloadapp />
+  <Authorlist />
+  <bottom />
 </template>
