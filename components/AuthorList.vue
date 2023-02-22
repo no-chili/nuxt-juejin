@@ -1,50 +1,42 @@
 <template>
-  <div id="frame">
-    <span id="top">
-      <div>作者榜</div>
-    </span>
-    <br /><br />
+  <div class="w-80 bg-white">
+    <div class="h-11">
+      <div class="p-3">🎖️作者榜</div>
+    </div>
     <hr />
     <div>
-      <a href="#">张三</a> <br>
-      <a href="#">李四</a> <br>
-      <a href="#">王五</a> <br>
+      <div v-for="item in authorList" :key="item.avatar" class="flex p-3">
+        <img :src="item.avatar" class="h-16 w-16 rounded-full" />
+        <div class="ml-5">
+          <div class="text-xl">{{ item.name }}</div>
+          <div class="pt-1 text-gray-500">{{ item.job }}</div>
+        </div>
+      </div>
     </div>
-    <hr/>
-    <a class="change" href="#">完整榜单></a>
+    <hr />
+    <nuxt-link :to="'#'">
+      <div class="h-11 p-3 text-center text-lg leading-10 text-blue-500">完整榜单></div>
+    </nuxt-link>
   </div>
 </template>
 <script lang="ts" setup>
-  let isShow = ref(1)
-  function change(index:number){
-    isShow.value=index
-  }
+const authorList = reactive([
+  {
+    avatar: 'https://p3-passport.byteimg.com/img/user-avatar/33a18c832ad717525f8abda8b4b03a52~100x100.awebp',
+    name: '张三',
+    job: '学生',
+  },
+  {
+    avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c1998c9bd48684eb72fa68d4bc262fc4~100x100.awebp',
+    name: '李四',
+    job: '学生',
+  },
+  {
+    avatar: 'https://p3-passport.byteimg.com/img/user-avatar/b9a366997037d998063135bd56302b85~100x100.awebp',
+    name: '王五',
+    job: '学生',
+  },
+])
 </script>
 
-<style scoped>
-#frame {
-  position: relative;
-  box-sizing: border-box;
-  height: 500px;
-  width: 100px;
-  margin: -500px 150px auto auto;
-  border-style: solid;
-  border-color: black;
-}
-
-#top {
-  position: absolute;
-  display: flex;
-  justify-content: left;
-  margin-top: 10px;
-}
-
-#date {
-  border-color: rgb(202, 202, 202);
-  color: rgb(125, 125, 125);
-}
-
-.change{
-  color:cornflowerblue;
-}
-</style>
+<style scoped></style>

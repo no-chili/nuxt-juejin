@@ -1,12 +1,33 @@
 <template>
-  <div id="frame">
+  <div id="frame" class="min-w-1/2 relative ml-44 w-full bg-white">
     <span id="top">
-      <a class="fch" id="ch1" href="#" :style="{color:isShow===1?'dodgerblue':'rgb(125,125,125)'}" @click="change(1)">推荐</a>
+      <a
+        class="fch"
+        id="ch1"
+        href="#"
+        :style="{ color: isShow === 0 ? 'dodgerblue' : 'rgb(125,125,125)' }"
+        @click="change(0)"
+        >推荐</a
+      >
       <div class="bound">|</div>
-      <a class="ch" id="ch2" href="#" :style="{color:isShow===2?'dodgerblue':'rgb(125,125,125)'}" @click="change(2)">最新</a>
+      <a
+        class="ch"
+        id="ch2"
+        href="#"
+        :style="{ color: isShow === 1 ? 'dodgerblue' : 'rgb(125,125,125)' }"
+        @click="change(1)"
+        >最新</a
+      >
       <div class="bound">|</div>
-      <a class="ch" id="ch3" href="#" :style="{color:isShow===3?'dodgerblue':'rgb(125,125,125)'}" @click="change(3)">热榜</a>
-      <select id="date" :style="{display:isShow===3?'block':'none'}">
+      <a
+        class="ch"
+        id="ch3"
+        href="#"
+        :style="{ color: isShow === 2 ? 'dodgerblue' : 'rgb(125,125,125)' }"
+        @click="change(2)"
+        >热榜</a
+      >
+      <select class="outline-none" id="date" :style="{ display: isShow === 2 ? 'block' : 'none' }">
         <option value="3天内">3天内</option>
         <option value="7天内">7天内</option>
         <option value="30天内">30天内</option>
@@ -16,196 +37,65 @@
     <br /><br />
     <hr />
     <div id="articles">
-            <div id="box1" v-if="isShow===1">
-                <div class="plate" onclick="window.open('./JavaScript怎么学.html')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" onclick="">张三</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="window.open('./javascript.html')">JavaScript</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">JavaScript怎么学</h1>
-                        <p class="intro_ch">JavaScript JavaScript JavaScript JavaScript</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">李四</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">HTML5</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">HTML怎么学</h1>
-                        <p class="intro_ch">HTML HTML HTML HTML</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">王五</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">1月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">CSS</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">CSS怎么学</h1>
-                        <p class="intro_ch">CSS CSS CSS CSS</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">老六</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">Node.js</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">Node.js怎么学</h1>
-                        <p class="intro_ch">Node.js Node.js Node.js Node.js</p>
-                    </div>
-                </div>
-                <hr>
+      <div id="box1">
+        <NuxtLink v-for="item in articleList[isShow]" :key="item.id" :to="`/article/${item.id}`">
+          <div class="plate">
+            <span class="intro">
+              <a class="intro_ch" href="#" onclick="">{{ item.worker }}</a>
+              <div class="bound">|</div>
+              <a class="intro_ch" href="#" onclick="">{{ item.time }}</a>
+              <div class="bound">|</div>
+              <a class="intro_ch" href="#" onclick="window.open('./javascript.html')">{{ item.tab }}</a>
+            </span>
+            <div class="article">
+              <h1 style="margin-left: 10px">{{ item.title }}</h1>
+              <p class="intro_ch">{{ item.introduce }}</p>
             </div>
-            <div id="box2" v-else-if="isShow===2">
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">王五</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">1月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">CSS</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">CSS怎么学</h1>
-                        <p class="intro_ch">CSS CSS CSS CSS</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('./JavaScript怎么学.html')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" onclick="">张三</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="window.open('./javascript.html')">JavaScript</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">JavaScript怎么学</h1>
-                        <p class="intro_ch">JavaScript JavaScript JavaScript JavaScript</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">李四</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">HTML5</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">HTML怎么学</h1>
-                        <p class="intro_ch">HTML HTML HTML HTML</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">老六</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">Node.js</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">Node.js怎么学</h1>
-                        <p class="intro_ch">Node.js Node.js Node.js Node.js</p>
-                    </div>
-                </div>
-            </div>
-            <div id="box2" v-else-if="isShow===3">
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">老六</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">Node.js</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">Node.js怎么学</h1>
-                        <p class="intro_ch">Node.js Node.js Node.js Node.js</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('./JavaScript怎么学.html')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" onclick="">张三</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" onclick="window.open('./javascript.html')">JavaScript</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">JavaScript怎么学</h1>
-                        <p class="intro_ch">JavaScript JavaScript JavaScript JavaScript</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">李四</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">2月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">HTML5</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">HTML怎么学</h1>
-                        <p class="intro_ch">HTML HTML HTML HTML</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="plate" onclick="window.open('')">
-                    <span class="intro">
-                        <a class=intro_ch href="#" @click="">王五</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">1月前</a>
-                        <div class="bound">|</div>
-                        <a class=intro_ch href="#" @click="">CSS</a>         
-                    </span>
-                    <div class="article">
-                        <h1 style="margin-left: 10px;">CSS怎么学</h1>
-                        <p class="intro_ch">CSS CSS CSS CSS</p>
-                    </div>
-                </div>
-                <hr>
-            </div>
-        </div>
+          </div>
+          <hr />
+        </NuxtLink>
+      </div>
     </div>
+  </div>
 </template>
 <script lang="ts" setup>
-  let isShow = ref(1)
-  function change(index:number){
-    isShow.value=index
-  }
+let isShow = ref(0)
+function change(index: number) {
+  isShow.value = index
+}
+
+const articleList = ref([
+  [
+    {
+      id: 1,
+      time: '19天前',
+      tab: '',
+      worker: '掘金酱',
+      title: '新年伊始，2月更文带你在技术写作之路「兔飞猛进」｜ 掘金日新计划',
+      introduce: '新年伊始，2月更文带你在技术写作之路「兔飞猛进」｜ 掘金日新计划',
+    },
+  ],
+  [
+    {
+      id: 1,
+      time: '19天前',
+      tab: '',
+      worker: '掘金酱',
+      title: '新年伊始，2月更文带你在技术写作之路「兔飞猛进」｜ 掘金日新计划',
+      introduce: '新年伊始，2月更文带你在技术写作之路「兔飞猛进」｜ 掘金日新计划',
+    },
+  ],
+  [],
+])
 </script>
 
 <style scoped>
 #frame {
-  position: relative;
+  /* position: relative;
   box-sizing: border-box;
   height: 500px;
   width: 500px;
-  margin: auto auto;
+  margin: auto auto; */
   border-style: solid;
   border-color: black;
 }
@@ -238,21 +128,21 @@
   color: rgb(125, 125, 125);
 }
 
-.intro{
-    display: flex;
-    justify-content: left;
-    margin-top: 10px;
+.intro {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
 }
 
-.intro_ch{
-    margin:0px 10px;
-    font-size:medium;
-    color: rgb(125,125,125);
+.intro_ch {
+  margin: 0px 10px;
+  font-size: medium;
+  color: rgb(125, 125, 125);
 }
-.plate{
-    border-bottom-style:solid ;
-    border-color: rgb(202, 201, 201);
-    box-sizing: border-box;
-    height: 150px;
+.plate {
+  border-bottom-style: solid;
+  border-color: rgb(202, 201, 201);
+  box-sizing: border-box;
+  height: 150px;
 }
 </style>
