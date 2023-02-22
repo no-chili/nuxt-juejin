@@ -88,6 +88,7 @@
                         <p class="intro_ch">CSS CSS CSS CSS</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('./JavaScript怎么学.html')">
                     <span class="intro">
                         <a class=intro_ch href="#" onclick="">张三</a>
@@ -101,6 +102,7 @@
                         <p class="intro_ch">JavaScript JavaScript JavaScript JavaScript</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('')">
                     <span class="intro">
                         <a class=intro_ch href="#" @click="">李四</a>
@@ -114,6 +116,7 @@
                         <p class="intro_ch">HTML HTML HTML HTML</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('')">
                     <span class="intro">
                         <a class=intro_ch href="#" @click="">老六</a>
@@ -142,6 +145,7 @@
                         <p class="intro_ch">Node.js Node.js Node.js Node.js</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('./JavaScript怎么学.html')">
                     <span class="intro">
                         <a class=intro_ch href="#" onclick="">张三</a>
@@ -155,6 +159,7 @@
                         <p class="intro_ch">JavaScript JavaScript JavaScript JavaScript</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('')">
                     <span class="intro">
                         <a class=intro_ch href="#" @click="">李四</a>
@@ -168,6 +173,7 @@
                         <p class="intro_ch">HTML HTML HTML HTML</p>
                     </div>
                 </div>
+                <hr>
                 <div class="plate" onclick="window.open('')">
                     <span class="intro">
                         <a class=intro_ch href="#" @click="">王五</a>
@@ -181,6 +187,7 @@
                         <p class="intro_ch">CSS CSS CSS CSS</p>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </div>
